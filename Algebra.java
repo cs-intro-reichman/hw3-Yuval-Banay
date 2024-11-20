@@ -59,7 +59,7 @@ public class Algebra {
 	// Returns x1 * x2
 	public static int times(int x1, int x2) {
 		int answer = x1;
-		int counter = 1;
+		
 		if (x1 == 0 || x2 == 0) {
 			return 0;
 		}
@@ -68,7 +68,7 @@ public class Algebra {
 				answer = plus(answer, x1);
 			}
 		} else {
-			for (int i = 0; i < Math.abs(x2)) {
+			for (int i = 0; i < Math.abs(x2); i++) {
 				answer = minus(answer, x1);
 			}
 		}
