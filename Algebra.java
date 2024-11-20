@@ -25,43 +25,76 @@ public class Algebra {
 
 	// Returns x1 + x2
 	public static int plus(int x1, int x2) {
-		// Replace the following statement with your code
-		return 0;
+		int answer = x1;
+		int counter = 0;
+		while (counter < x2) {
+			answer++;
+			counter++;
+		}
+		return answer;
 	}
 
 	// Returns x1 - x2
 	public static int minus(int x1, int x2) {
-		// Replace the following statement with your code
-		return 0;
+		int answer = x1;
+		int counter = 0;
+		while (counter < x2) {
+			answer--;
+			counter++;
+		}
+		return answer;
 	}
 
 	// Returns x1 * x2
 	public static int times(int x1, int x2) {
-		// Replace the following statement with your code
-		return 0;
+		int answer = x1;
+		int counter = 1;
+		while (counter < x2) {
+			answer = plus(answer, x1);
+			counter++;
+		}
+		return answer;
 	}
 
 	// Returns x^n (for n >= 0)
 	public static int pow(int x, int n) {
-		// Replace the following statement with your code
-		return 0;
+		int answer = x;
+		int counter = 1;
+		while (counter < n) {
+			answer = times(answer, x);
+			counter++;
+		}
+		return answer;
 	}
 
 	// Returns the integer part of x1 / x2 
 	public static int div(int x1, int x2) {
-		// Replace the following statement with your code
-		return 0;
+		int answer = x2;
+		int counter = 1;
+		while (answer < x1) {
+			answer = plus(answer, x2);
+			counter++;
+			if (answer > x1){
+				counter--;
+			}
+		}
+		return counter;
 	}
 
-	// Returns x1 % x2
+	// Returns x1 % x2 (a = q * b + r)
 	public static int mod(int x1, int x2) {
-		// Replace the following statement with your code
-		return 0;
+		int divide = div(x1, x2);
+		int closeNum = times(divide, x2);
+		int answer = minus(x1, closeNum);
+		return answer;
 	}	
 
 	// Returns the integer part of sqrt(x) 
 	public static int sqrt(int x) {
-		// Replace the following statement with your code
-		return 0;
+		int answer = 1;
+		while (times(answer, answer) <= x) {
+			answer++;
+		}
+		return --answer;
 	}	  	  
 }
