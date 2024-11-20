@@ -32,7 +32,7 @@ public class Algebra {
 				answer++;
 			}
 		} else {
-			for(int i = 0; i < -x2; i++) {
+			for(int i = 0; i < Math.abs(x2); i++) {
 				answer--;
 			}
 		}
@@ -42,13 +42,19 @@ public class Algebra {
 	// Returns x1 - x2
 	public static int minus(int x1, int x2) {
 		int answer = x1;
-		int counter = 0;
-		while (counter < x2) {
-			answer--;
-			counter++;
+
+		if (x2 > 0) {
+			for(int i = 0; i < x2; i++) {
+				answer--;
+			}
+		} else {
+			for(int i = 0; i < Math.abs(x2); i++) {
+				answer++;
+			}
 		}
 		return answer;
 	}
+		
 
 	// Returns x1 * x2
 	public static int times(int x1, int x2) {
@@ -57,9 +63,14 @@ public class Algebra {
 		if (x1 == 0 || x2 == 0) {
 			return 0;
 		}
-		while (counter < x2) {
-			answer = plus(answer, x1);
-			counter++;
+		if (x2 > 0) {
+			for (int i = 1; i < x2; i++) {
+				answer = plus(answer, x1);
+			}
+		} else {
+			for (int i = 0; i < Math.abs(x2)) {
+				answer = minus(answer, x1);
+			}
 		}
 		return answer;
 	}
