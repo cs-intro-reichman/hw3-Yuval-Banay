@@ -98,20 +98,32 @@ public class Algebra {
 
 	// Returns the integer part of x1 / x2 
 	public static int div(int x1, int x2) {
-		int answer = x2;
-		int counter = 1;
-		while (answer < x1) {
-			answer = plus(answer, x2);
-			counter++;
-			if (answer > x1){
-				counter--;
-			}
+		int numerator = Math.abs(x1);
+		int denomiator = Math.abs(x2);
+		int result = 0;
+
+		if (x2 == 0) {
+			throw new ArithmeticException("Cannot divide by zero");
 		}
-		return counter;
+		if (numerator < denomiator) {
+			return 0;
+		}
+		while (numerator >= denomiator) {
+			numerator = minus(numerator, denomiator);
+			result++;
+		}
+		if ((x1 > 0 && x2 < 0) || (x1 < 0 && x2 > 0)) {
+			result = minus(0, result);
+		}
+		return result;
 	}
 
 	// Returns x1 % x2 (a = q * b + r)
 	public static int mod(int x1, int x2) {
+		if (x2 == 0) {
+			throw new ArithmeticException("Cannot divide by zero");
+		}
+
 		int divide = div(x1, x2);
 		int closeNum = times(divide, x2);
 		int answer = minus(x1, closeNum);
