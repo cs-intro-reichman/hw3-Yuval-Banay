@@ -10,15 +10,19 @@ public class Algebra {
 	    System.out.println(minus(7,2));  // 7 - 2
    		System.out.println(minus(2,7));  // 2 - 7
  		System.out.println(times(3,5));  // 3 * 4
-		 System.out.println(times(-3,5));
-		 System.out.println(times(-3, -5));
-		 System.out.println(times(3, -5));
+		System.out.println(times(-3,5));
+		System.out.println(times(-3, -5));
+		System.out.println(times(3, -5));
    		System.out.println(plus(2,times(4,2)));  // 2 + 4 * 2
    		System.out.println(pow(5,3));      // 5^3
    		System.out.println(pow(3,5));      // 3^5
    		System.out.println(div(12,3));   // 12 / 3    
    		System.out.println(div(5,5));    // 5 / 5  
    		System.out.println(div(25,7));   // 25 / 7
+		System.out.println(div(0, 5));
+		System.out.println(div(-10, 5));
+		System.out.println(div(-10, -5));
+		System.out.println(div(10, -5));
    		System.out.println(mod(25,7));   // 25 % 7
    		System.out.println(mod(120,6));  // 120 % 6    
    		System.out.println(sqrt(36));
@@ -82,6 +86,9 @@ public class Algebra {
 	public static int pow(int x, int n) {
 		int answer = x;
 		int counter = 1;
+		if (n == 0) {
+			return 1;
+		}
 		while (counter < n) {
 			answer = times(answer, x);
 			counter++;
