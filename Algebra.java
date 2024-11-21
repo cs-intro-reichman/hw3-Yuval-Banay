@@ -9,7 +9,10 @@ public class Algebra {
 	    System.out.println(plus(2,-3));   // 2 + 3
 	    System.out.println(minus(7,2));  // 7 - 2
    		System.out.println(minus(2,7));  // 2 - 7
- 		System.out.println(times(3,-5));  // 3 * 4
+ 		System.out.println(times(3,5));  // 3 * 4
+		 System.out.println(times(-3,5));
+		 System.out.println(times(-3, -5));
+		 System.out.println(times(3, -5));
    		System.out.println(plus(2,times(4,2)));  // 2 + 4 * 2
    		System.out.println(pow(5,3));      // 5^3
    		System.out.println(pow(3,5));      // 3^5
@@ -59,7 +62,7 @@ public class Algebra {
 	// Returns x1 * x2
 	public static int times(int x1, int x2) {
 		int answer = x1;
-		
+
 		if (x1 == 0 || x2 == 0) {
 			return 0;
 		}
@@ -67,11 +70,11 @@ public class Algebra {
 			for (int i = 1; i < x2; i++) {
 				answer = plus(answer, x1);
 			}
-		} else {
-			for (int i = 0; i < Math.abs(x2); i++) {
+		} else if (x2 < 0) {
+			for (int i = 0; i <= Math.abs(x2); i++) {
 				answer = minus(answer, x1);
 			}
-		}
+		} 
 		return answer;
 	}
 
