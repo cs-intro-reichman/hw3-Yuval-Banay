@@ -30,6 +30,8 @@ public class Anagram {
 	public static boolean isAnagram(String str1, String str2) {
 		str1 = preProcess(str1);
 		str2 = preProcess(str2);
+		str1 = str1.replace(" ", "");
+		str2 = str2.replace(" ", "");
 		if (str1.length() != str2.length()) {
 			return false;
 		}
@@ -55,9 +57,9 @@ public class Anagram {
 			char c = str.charAt(i);
 			if (c >= 'a' && c <= 'z') {
 				fixWord += c;
-			} else if (c >= 'A' && c <= 'Z') {
+			} if (c >= 'A' && c <= 'Z') {
 				fixWord += c;
-			} else if (c == 32) {
+			} if (c == 32) {
 				fixWord += " ";
 			}
 		}
